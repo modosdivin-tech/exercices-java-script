@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account 
+
+    </title>
+    
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #e95009; /* Blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgb(253, 252, 247);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 24px;
+            color: #333;
+        }
+        .subtitle {
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .input-wrapper {
+            position: relative;
+        }
+        input[type="text"], 
+        input[type="email"], 
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .password-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .forgot-password {
+            color: #263f5a50;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: normal;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        .sign-up-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #da9a11;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .sign-up-button:hover {
+            background-color: #3a7bd5;
+        }
+        .back-to-list {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Create an Account </h2>
+        <p class="subtitle"> Welcome to our site  </p>
+
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email"required>
+                </div>
+                <div id="emailError" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div id="usernameError" class="error-message"></div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="password-info">
+                    <label for="password">PASSWORD</label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" id="password" value="0000" required>
+                </div>
+                <div id="passwordError" class="error-message"></div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms" style="font-weight: normal; margin-bottom: 0;">I accept the all conditions</label>
+            </div>
+            <div id="termsError" class="error-message" style="margin-top: -20px; margin-bottom: 10px;"></div>
+
+            <button type="submit" class="sign-up-button"> 
+                  <a href="6th secood homework 3em pages.html"> sign-up </a>
+            </button>
+        </form>
+
+        <a href="#" class="back-to-list"><a href="5th second homework.html">Back to list</a></a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('signupForm');
+            
+            // Get all input elements
+            const emailInput = document.getElementById('email');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const termsCheckbox = document.getElementById('terms');
+
+            // Get all error message elements
+            const emailError = document.getElementById('emailError');
+            const usernameError = document.getElementById('usernameError');
+            const passwordError = document.getElementById('passwordError');
+            const termsError = document.getElementById('termsError');
+            
+            // Function to show an error message
+            function displayError(element, message) {
+                element.textContent = message;
+                element.style.display = 'block';
+            }
+
+        
+            function hideError(element) {
+                element.textContent = '';
+                element.style.display = 'none';
+            }
+
+            
+            form.addEventListener('submit', function(event) {
+                
+                event.preventDefault(); 
+                
+                let formIsValid = true;
+                
+            
+                if (emailInput.value.trim() === '') {
+                    displayError(emailError, 'Email address is required');
+                    formIsValid = false;
+                } else if (!emailInput.value.includes('@') || !emailInput.value.includes('.')) {
+                    displayError(emailError, 'Please enter a valid email address.');
+                    formIsValid = false;
+                } else {
+                    hideError(emailError);
+                }
+            
+                if (usernameInput.value.trim() === '') {
+                    displayError(usernameError, 'Username is required.');
+                    formIsValid = false;
+                } else if (usernameInput.value.length < 4) {
+                    displayError(usernameError, 'Username must be at least 4 characters long.');
+                    formIsValid = false;
+                } else {
+                    hideError(usernameError);
+                }
+                
+                // --- 3. Password Validation ---
+                if (passwordInput.value === '******') {
+                    passwordInput.value = ''; 
+                } 
+                if (passwordInput.value === '') {
+                    displayError(passwordError, 'Password is required.');
+                    formIsValid = false;
+                } else if (passwordInput.value.length < 8) {
+                    displayError(passwordError, 'Password must be at least 8 characters.');
+                    formIsValid = false;
+                } else {
+                    hideError(passwordError);
+                }
+
+                // --- 4. Terms Checkbox Validation ---
+                if (!termsCheckbox.checked) {
+                    displayError(termsError, 'You must accept the terms and conditions.');
+                    formIsValid = false;
+                } else {
+                    hideError(termsError);
+                }
+                
+                // --- Submission Logic ---
+                if (formIsValid) {
+                
+
+                    alert('Account successfully created (Validation Passed)!'); 
+                    
+                
+                    console.log('Form Data:', {
+                        email: emailInput.value,
+                        username: usernameInput.value,
+                        password: passwordInput.value 
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
