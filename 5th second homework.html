@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> La Team </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f6f9;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-top: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .add-btn {
+            background: #4b7bfd;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .grid {
+            margin-top: 35px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff; 
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        
+        .card img {
+            width: 95px;
+            height: 95px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .card h3 {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .role {
+            margin-top: 5px;
+            color: gray;
+            font-size: 14px;
+        }
+
+        .email {
+            margin-top: 5px;
+            color: #444;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>La Team</h1>
+            <button class="add-btn" onclick="addMember()">
+                 <a href="4th the first homework.html">Add New Member</a>
+            </button> 
+        </div>
+
+        <div class="grid" id="teamGrid">
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=15">
+                <h3>Jason</h3>
+                <p class="role">Admin</p>
+                <p class="email">DonDivin@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=12">
+                <h3>DUSHIME</h3>
+                <p class="role">CEO</p>
+                <p class="email">CIZA@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=33">
+                <h3>King</h3>
+                <p class="role">CTO</p>
+                <p class="email">nadia@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=22">
+                <h3>Benson</h3>
+                <p class="role">Lead</p>
+                <p class="email">wallace@kunde.us</p>
+            </div>
+     
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=10">
+                <h3>Olivia</h3>
+                <p class="role">Strategist</p>
+                <p class="email">hattie@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=5">
+                <h3>Bertha</h3>
+                <p class="role">CEO</p>
+                <p class="email">loraine.@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=25">
+                <h3>Payne</h3>
+                <p class="role">Digital Marketer</p>
+                <p class="email">west@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=20">
+                <h3>Bryant</h3>
+                <p class="role">Social Media</p>
+                <p class="email">kling@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=47">
+                <h3>Lily French</h3>
+                <p class="role">Strategist</p>
+                <p class="email">lucienne@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=23">
+                <h3>Howard Hawkins</h3>
+                <p class="role">CEO</p>
+                <p class="email">leopold@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=32">
+                <h3>Bowman</h3>
+                <p class="role">Digital Marketer</p>
+                <p class="email">altenwerth@gmail.com</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pravatar.cc/150?img=1">
+                <h3>Padilla</h3>
+                <p class="role">Social Media</p>
+                <p class="email">octavia.@gmail.com</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function addMember() {
+            let grid = document.getElementById("teamGrid");
+
+            let randomImg = Math.floor(Math.random() * 70);
+
+            let card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+                <img src="https://i.pravatar.cc/150?img=${randomImg}">
+                <h3>Nouveau membre</h3>
+                <p class="role">Role</p>
+                <p class="email">email@example.com</p>
+            `;
+
+            grid.appendChild(card);
+        }
+    </script>
+
+</body>
+</html>
